@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "fastapi-practice"
+version = "0.1.0"
+description = ""
+authors = ["maxwell <maxwell@aidkr.com>"]
+packages = [{ include = "app", from = "." }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.70.1"
+uvicorn = "^0.16.0"
+
+
+[tool.poetry.scripts]
+start = "app.main:start"
+
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
