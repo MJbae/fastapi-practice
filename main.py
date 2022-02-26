@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Optional
+from typing import Optional, List
 
 from fastapi import FastAPI, Query
 from pydantic import BaseModel, Field
@@ -16,6 +16,7 @@ class Book(BaseModel):
     name: str = Field(max_length=100, description="it is not allowed to be over 100 letters in name field")
     price: float = Field(gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
+    tag: List[str] = ["hello", "world"]
 
 
 app = FastAPI()
