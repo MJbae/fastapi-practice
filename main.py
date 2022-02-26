@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Optional
 
 from fastapi import FastAPI
 
@@ -13,8 +14,8 @@ app = FastAPI()
 
 
 @app.get("/books/{book_id}")
-async def retrieve_books(book_id: int):
-    return {"id": book_id}
+async def retrieve_books(book_id: int, needy: str, skp: int = 0, limit: Optional[int] = None):
+    return {"id": book_id, "needy": needy, "skip": skp, "limit": limit}
 
 
 @app.get("/genres/{genre_name}")
