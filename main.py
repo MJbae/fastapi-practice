@@ -41,5 +41,5 @@ async def create_book(book: Book):
 
 @app.patch("/books/{book_id}")
 async def update_partially_book(book_id: int, book: Book):
-    result = {"updated": True, **book.dict()}
+    result = {**book.dict(), "id": book_id, "updated": True}
     return result
