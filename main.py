@@ -37,3 +37,9 @@ async def retrieve_genres(genre_name: BookGenre):
 @app.post("/books/")
 async def create_book(book: Book):
     return book
+
+
+@app.patch("/books/{book_id}")
+async def update_partially_book(book_id: int, book: Book):
+    result = {"updated": True, **book.dict()}
+    return result
