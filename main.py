@@ -2,12 +2,20 @@ from enum import Enum
 from typing import Optional
 
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 
 class BookGenre(str, Enum):
     action = "action"
     sf = "science-fiction"
     romance = "love-fiction"
+
+
+class Book(BaseModel):
+    id: int
+    name: str
+    price: float
+    tax: Optional[float] = None
 
 
 app = FastAPI()
@@ -24,3 +32,8 @@ async def retrieve_genres(genre_name: BookGenre):
         return {"genre_name": genre_name}
     else:
         return {"genre_name": genre_name}
+
+
+@app.post("/books/")
+async def create_book(book: Book):
+    return book
