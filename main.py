@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from pydantic import BaseModel
 
 
@@ -19,6 +19,16 @@ class Book(BaseModel):
 
 
 app = FastAPI()
+
+
+@app.get("/books/")
+async def list_books(
+        q: Optional[str] = Query(None, min_length=1, max_length=3, regex="^fixedquery$")
+):
+    results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
+    if q:
+        results.update({"q": q})
+    return results
 
 
 @app.get("/books/{book_id}")
