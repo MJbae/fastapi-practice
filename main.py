@@ -23,7 +23,7 @@ app = FastAPI()
 
 @app.get("/books/")
 async def list_books(
-        q: Optional[str] = Query(None, min_length=1, max_length=3, regex="^fixedquery$")
+        q: Optional[str] = Query(None, min_length=1, max_length=10, regex="^fixedquery$")
 ):
     results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
     if q:
