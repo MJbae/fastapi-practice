@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Optional
 
 from fastapi import FastAPI, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class BookGenre(str, Enum):
@@ -13,8 +13,8 @@ class BookGenre(str, Enum):
 
 class Book(BaseModel):
     id: int
-    name: str
-    price: float
+    name: str = Field(max_length=100, description="it is not allowed to be over 100 letters in name field")
+    price: float = Field(gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
 
 
