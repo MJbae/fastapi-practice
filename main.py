@@ -17,7 +17,7 @@ class Book(BaseModel):
     price: float = Field(gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
     tag: List[str] = ["hello", "world"]
-    genre: Optional[BookGenre] = None
+    genre: Optional[List[BookGenre]] = None
 
 
 app = FastAPI()
