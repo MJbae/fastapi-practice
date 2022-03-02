@@ -35,7 +35,8 @@ def test_cannot_allocate_if_available_smaller_than_required():
 
 
 def test_can_allocate_if_available_equal_to_required():
-    pytest.fail("todo")
+    batch, line = make_batch_and_line("ELEGANT-LAMP", 2, 2)
+    assert batch.can_allocate(line)
 
 
 def test_prefers_warehouse_batches_to_shipments():
