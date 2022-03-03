@@ -40,6 +40,13 @@ class Batch:
         if line in self._allocations:
             self._allocations.remove(line)
 
+    def __gt__(self, other):
+        if self.eta is None:
+            return False
+        if other.eta is None:
+            return True
+        return self.eta > other.eta
+
     @property
     def allocated_quantity(self) -> int:
         return sum(line.qty for line in self._allocations)
