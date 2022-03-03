@@ -1,7 +1,5 @@
 from datetime import date, timedelta
 
-import pytest
-
 from archt_pat_app.domain.model import Batch, OrderLine, allocate, OutOfStock
 
 today = date.today()
