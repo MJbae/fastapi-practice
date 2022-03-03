@@ -32,14 +32,6 @@ class Batch:
         self._purchased_quantity = qty
         self._allocations = set()
 
-    def allocate(self, line: OrderLine):
-        if self.can_allocate(line):
-            self._allocations.add(line)
-
-    def deallocate(self, line: OrderLine):
-        if line in self._allocations:
-            self._allocations.remove(line)
-
     def __gt__(self, other):
         if self.eta is None:
             return False
@@ -54,6 +46,14 @@ class Batch:
 
     def __hash__(self):
         return hash(self.reference)
+
+    def allocate(self, line: OrderLine):
+        if self.can_allocate(line):
+            self._allocations.add(line)
+
+    def deallocate(self, line: OrderLine):
+        if line in self._allocations:
+            self._allocations.remove(line)
 
     @property
     def allocated_quantity(self) -> int:
