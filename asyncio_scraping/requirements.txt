@@ -1,9 +1,10 @@
 fastapi[all]
-sqlalchemy
-
-# test
-pytest
+uvicorn
 
 # scraping
 beautifulsoup4
 aiohttp
+
+# etc
+flake8
+black
