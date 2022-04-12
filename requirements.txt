@@ -1,9 +1,0 @@
-fastapi[all]
-sqlalchemy
-
-# test
-pytest
-
-# scraping
-beautifulsoup4
-aiohttp

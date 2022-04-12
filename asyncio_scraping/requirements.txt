@@ -5,6 +5,10 @@ uvicorn
 beautifulsoup4
 aiohttp
 
+# odm
+odmantic
+motor
+
 # etc
 flake8
 black
