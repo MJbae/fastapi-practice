@@ -8,6 +8,7 @@ aiohttp
 # odm
 odmantic
 motor
+pymongo[srv]
 
 # etc
 flake8
