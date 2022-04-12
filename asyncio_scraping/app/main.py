@@ -17,3 +17,11 @@ async def root(request: Request):
         "./index.html",
         {"request": request, "title": "콜렉터 북북이"},
     )
+
+
+@app.get("/search", response_class=HTMLResponse)
+async def search(request: Request, s: str):
+    return templates.TemplateResponse(
+        "./index.html",
+        {"request": request, "title": "practice fastapi"}
+    )
