@@ -20,3 +20,9 @@ def get_secret(
         if default_value:
             return default_value
         raise EnvironmentError(f"Set the {key} environment variable.")
+
+
+MONGO_URL = get_secret("MONGO_URL")
+MONGO_DB_NAME = get_secret("MONGO_DB_NAME")
+NAVER_API_ID = get_secret("NAVER_API_ID")
+NAVER_API_SECRET = get_secret("NAVER_API_SECRET")
