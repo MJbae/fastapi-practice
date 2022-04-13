@@ -1,0 +1,15 @@
+fastapi[all]
+uvicorn
+
+# scraping
+beautifulsoup4
+aiohttp
+
+# odm
+odmantic
+motor
+pymongo[srv]
+
+# etc
+flake8
+black
